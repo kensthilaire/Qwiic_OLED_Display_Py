@@ -40,7 +40,7 @@
 #
 
 from __future__ import print_function, division
-import qwiic_oled_display
+import Qwiic.qwiic_oled_display as qwiic_oled_display
 import time
 import sys
 import math
@@ -306,13 +306,13 @@ def textExamples(myOLED):
     # Print can be used to print a string to the screen:
     myOLED.print("OL")
     myOLED.display()       # Refresh the display
-    time.sleep(1)
+    time.sleep(5)
 
     myOLED.clear(myOLED.PAGE)
     myOLED.set_cursor(0, 0)
     myOLED.print("ED")
     myOLED.display()
-    time.sleep(1)
+    time.sleep(5)
 
     myOLED.set_font_type(1)
     myOLED.clear(myOLED.PAGE)

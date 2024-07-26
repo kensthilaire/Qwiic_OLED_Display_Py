@@ -40,8 +40,9 @@
 #
 
 from __future__ import print_function
-import qwiic_oled_display
+import Qwiic.qwiic_oled_display as qwiic_oled_display
 import sys
+import time
 
 def runExample():
 
@@ -55,7 +56,7 @@ def runExample():
     print("\nSparkFun OLED Display - Hello World Example\n")
 
     #  Create instance with parameters for Qwiic OLED Display
-    myOLED = qwiic_oled_display.QwiicOledDisplay(0x3C, 128, 32)
+    myOLED = qwiic_oled_display.QwiicOledDisplay()
 
     if not myOLED.connected:
         print("The Qwiic OLED Display isn't connected to the system. Please check your connection", \
@@ -78,10 +79,19 @@ def runExample():
     myOLED.display()
     time.sleep(3)
 
+    myOLED.set_font_type(0)
+    
     #  Print "Hello World"
     #  ---------------------------------------------------------------------------
     #  Add text
-    myOLED.print("Hello World")
+    myOLED.set_cursor(0,0)
+    myOLED.print("Hello World!")
+    
+    myOLED.set_cursor(0,12)
+    myOLED.print("Here I AM!")
+
+    myOLED.set_cursor(0,24)
+    myOLED.print("Where Are You!")
 
     #  Display buffer contents
     myOLED.display()
